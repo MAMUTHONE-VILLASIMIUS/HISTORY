@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="it">
 <head>
 <meta charset="UTF-8">
@@ -74,10 +73,58 @@ header{
     padding:30px;
     border-radius:12px;
     box-shadow:0 3px 12px rgba(0,0,0,.08);
+    margin-bottom: 30px;
 }
 
 .section h2{
     margin-bottom:20px;
+}
+
+.section h3{
+    margin: 20px 0 10px 0;
+    color: #444;
+}
+
+.section ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.section li {
+    margin-bottom: 8px;
+}
+
+.paypal-section {
+    background: #ffffff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    text-align: center;
+}
+
+.paypal-section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #333;
+}
+
+.paypal-button {
+    background-color: #0070ba;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.paypal-button:hover {
+    background-color: #005ea6;
 }
 
 footer{
@@ -124,96 +171,118 @@ img.gallery{
 
 <div class="container">
     <div class="section">
+        <h2 id="historyTitle">La storia</h2>
 
-```
-    <h2 id="historyTitle">La storia</h2>
+        <div id="historyText">
+            <h3>1. L'Abbigliamento e la Maschera</h3>
+            <p>Il costume del Mamuthone è rigido, pesante e composto da elementi tradizionali ben precisi:</p>
+            <ul>
+                <li><strong>La visera (Maschera):</strong> È una maschera lignea antropomorfa, intagliata in legni teneri locali (come il fico o l'ontano) e dipinta di nero. Ha tratti somatici marcati, spesso asimmetrici, che esprimono sofferenza, stanchezza o una fissità grottesca.</li>
+                <li><strong>La mastruca:</strong> Una giacca smanicata fatta di pelle di pecora scura (nera o marrone), indossata sopra l'abito tradizionale di velluto.</li>
+                <li><strong>Il copricapo:</strong> Sul capo viene indossato un fazzoletto scuro (solitamente marrone o nero), tipico del vestiario femminile sardo (su mucadore), legato sotto il mento per coprire la testa e fermare la maschera, sormontato a sua volta dal tipico berretto sardo (berrita).</li>
+                <li><strong>I campanacci (carriga):</strong> È l'elemento più pesante del costume. Si tratta di una vera e propria carica di campane di bronzo e ferro battuto di varie dimensioni, legate insieme da cinghie di cuoio. Vengono sistemate sul dorso (i campanacci più grandi) e sul petto (le campanelle più piccole, chiamate trebba), arrivando a pesare complessivamente dai 25 ai 30 kg.</li>
+            </ul>
 
-    <p id="historyText">
-        I Mamuthones rappresentano una delle maschere tradizionali più celebri della Sardegna.
-        Originari di Mamoiada, nel cuore della Barbagia, sono protagonisti di un rito
-        antico che affonda le sue radici in epoche remote e misteriose.
+            <h3>2. Comportamento e Movimento durante il Rito</h3>
+            <p>Il Mamuthone non partecipa all'allegria generale del Carnevale; il suo comportamento è rituale, quasi ieratico:</p>
+            <ul>
+                <li><strong>La formazione:</strong> I Mamuthones sfilano rigorosamente disposti su due file parallele (solitamente in un numero compreso tra 12 e 18).</li>
+                <li><strong>Il passo cadenzato:</strong> Avanzano con un'andatura lenta, pesante e faticosa. Il movimento fondamentale consiste in un saltello sincronizzato, eseguito flettendo il ginocchio e dando un colpo secco con la spalla. Questo movimento coordinato serve a far risuonare tutti i campanacci contemporaneamente, producendo un frastuono ritmico e cupo che scuote l'intero paese.</li>
+                <li><strong>L'atteggiamento:</strong> Durante tutta la sfilata mantengono un silenzio assoluto. Non parlano, non ridono e non interagiscono con il pubblico, muovendosi come figure sottomesse o prigioniere guidate dagli Issohadores.</li>
+            </ul>
 
-        Vestiti con pelli ovine nere e portando sulle spalle decine di pesanti campanacci,
-        i Mamuthones avanzano lentamente seguendo una processione ritmica e solenne.
-        Al loro fianco sfilano gli Issohadores, riconoscibili per il costume bianco e la
-        caratteristica fune utilizzata per catturare simbolicamente gli spettatori.
+            <h3>3. Significato e Interpretazione</h3>
+            <p>Massajoli analizza la figura del Mamuthone evidenziando il contrasto con l'Issohadore (vestito di rosso, agile e dominante):</p>
+            <ul>
+                <li>Il Mamuthone rappresenta l'elemento passivo e tragico del rito. La maschera sofferente e il peso enorme che porta sulla schiena evocano l'immagine di un prigioniero, di una vittima sacrificale o di un essere ancestrale sottomesso.</li>
+                <li>Il frastuono dei campanacci ha un forte valore apotropaico (per scacciare il male) e propiziatorio, legato ai ritmi della terra, del pastoralismo e del risveglio della natura all'inizio dell'anno.</li>
+            </ul>
+        </div>
 
-        Il significato originario della manifestazione è ancora oggi oggetto di studio.
-        Secondo alcune interpretazioni il rito sarebbe collegato a cerimonie propiziatorie
-        per la fertilità della terra, mentre altre ipotesi lo collegano a celebrazioni
-        pastorali o a riti precristiani.
+        <button class="audio-btn" onclick="speakText()">
+            🔊 Ascolta la storia
+        </button>
 
-        Oggi i Mamuthones costituiscono uno dei simboli culturali più importanti della Sardegna
-        e attirano visitatori da tutto il mondo.
-    </p>
+        <img class="gallery" src="mamuthones.jpg" alt="Mamuthones">
+    </div>
 
-    <button class="audio-btn" onclick="speakText()">
-        🔊 Ascolta la storia
-    </button>
-
-    <img class="gallery" src="mamuthones.jpg" alt="Mamuthones">
-
-</div>
-```
-
+    <!-- Nuova sezione Donazioni PayPal -->
+    <div class="paypal-section">
+        <p id="donationMessage">Con il tuo contributo aiutiamo il nostro Mamuthone a restare qui e sosteniamo le feste cittadine</p>
+        <!-- Sostituisci il link '#!' qui sotto con il tuo link di donazione PayPal reale (es. PayPal.Me) -->
+        <a href="#!" target="_blank" class="paypal-button">Sostienici con PayPal</a>
+    </div>
 </div>
 
 <footer>
-    © Comune / Associazione culturale
+    © MAMUTHONE / VILLASIMIUS
 </footer>
 
 <script>
-
 const translations = {
-
 it:{
 title:"Mamuthones di Mamoiada",
 subtitle:"Una delle tradizioni più antiche e affascinanti della Sardegna",
-historyTitle:"La storia",
-historyText:`I Mamuthones rappresentano una delle maschere tradizionali più celebri della Sardegna. Originari di Mamoiada, nel cuore della Barbagia, sono protagonisti di un rito antico che affonda le sue radici in epoche remote e misteriose. Vestiti con pelli ovine nere e portando sulle spalle decine di pesanti campanacci, i Mamuthones avanzano lentamente seguendo una processione ritmica e solenne. Al loro fianco sfilano gli Issohadores.`
+donationMessage:"Con il tuo contributo aiutiamo il nostro Mamuthone a restare qui e sosteniamo le feste cittadine",
+historyHTML:`
+    <h3>1. L'Abbigliamento e la Maschera</h3>
+    <p>Il costume del Mamuthone è rigido, pesante e composto da elementi tradizionali ben precisi:</p>
+    <ul>
+        <li><strong>La visera (Maschera):</strong> È una maschera lignea antropomorfa, intagliata in legni teneri locali e dipinta di nero. Esprime sofferenza o stanchezza.</li>
+        <li><strong>La mastruca:</strong> Una giacca smanicata fatta di pelle di pecora scura.</li>
+        <li><strong>Il copricapo:</strong> Un fazzoletto scuro (su mucadore) sormontato dalla berrita.</li>
+        <li><strong>I campanacci (carriga):</strong> Una carica di campane sul dorso e sul petto pesante dai 25 ai 30 kg.</li>
+    </ul>
+    <h3>2. Comportamento e Movimento durante il Rito</h3>
+    <p>Il loro comportamento è rituale e ieratico:</p>
+    <ul>
+        <li><strong>La formazione:</strong> Sfilano disposti su due file parallele.</li>
+        <li><strong>Il passo cadenzato:</strong> Avanzano con un'andatura lenta e un saltello sincronizzato per far suonare i campanacci.</li>
+        <li><strong>L'atteggiamento:</strong> Mantengono un silenzio assoluto durante tutta la sfilata.</li>
+    </ul>
+    <h3>3. Significato e Interpretazione</h3>
+    <ul>
+        <li>Il Mamuthone rappresenta l'elemento passivo e tragico del rito, come una vittima sacrificale o un prigioniero.</li>
+        <li>Il frastuono dei campanacci ha un valore apotropaico e propiziatorio per il risveglio della natura.</li>
+    </ul>`
 },
-
 en:{
 title:"The Mamuthones of Mamoiada",
 subtitle:"One of Sardinia's oldest and most fascinating traditions",
-historyTitle:"History",
-historyText:`The Mamuthones are among the most famous traditional masks of Sardinia. Originating in Mamoiada, they take part in an ancient ritual whose origins remain mysterious. Dressed in black sheepskins and carrying heavy bells, they move in a solemn rhythmic procession accompanied by the Issohadores.`
+donationMessage:"With your contribution we help our Mamuthone stay here and support town festivals",
+historyHTML:`<h3>1. Clothing and Mask</h3><p>The Mamuthone costume is rigid and heavy, featuring the black wooden mask (visera), dark sheepskin jacket (mastruca), traditional headwear, and 25-30 kg of bells (carriga) on the back and chest.</p><h3>2. Behavior and Movement</h3><p>They march in two parallel lines with a heavy, slow pace and a synchronized hop that rings the bells simultaneously in total silence.</p><h3>3. Meaning</h3><p>They represent a passive, tragic element or sacrificial figure. The loud sound of the bells serves to ward off evil and welcome the awakening of nature.</`
 },
-
 fr:{
 title:"Les Mamuthones de Mamoiada",
 subtitle:"Une des traditions les plus anciennes de Sardaigne",
-historyTitle:"Histoire",
-historyText:`Les Mamuthones sont parmi les masques traditionnels les plus célèbres de Sardaigne. Ils participent à un rituel ancien dont les origines restent mystérieuses.`
+donationMessage:"Avec votre contribution, nous aidons notre Mamuthone à rester ici et soutenons les fêtes du village",
+historyHTML:`<h3>Le Rituel des Mamuthones</h3><p>Les Mamuthones portent des masques noirs en bois, des peaux de mouton sombres et de lourdes cloches pesant jusqu'à 30 kg. Ils défilent en silence avec un pas rythmé et solennel pour chasser le mal et favoriser la fertilité de la terre.</p>`
 },
-
 es:{
 title:"Los Mamuthones de Mamoiada",
 subtitle:"Una de las tradiciones más antiguas de Cerdeña",
-historyTitle:"Historia",
-historyText:`Los Mamuthones son una de las máscaras tradicionales más famosas de Cerdeña. Participan en un antiguo ritual cuyos orígenes siguen siendo misteriosos.`
+donationMessage:"Con tu contribución ayudamos a nuestro Mamuthone a quedarse aquí y apoyamos las fiestas del pueblo",
+historyHTML:`<h3>El Ritual de los Mamuthones</h3><p>Los Mamuthones visten trajes rígidos con máscaras negras de madera y cargan entre 25 y 30 kg de cencerros. Avanzan en filas paralelas con un paso cadencioso y un salto sincronizado en absoluto silencio.</p>`
 },
-
 de:{
 title:"Die Mamuthones von Mamoiada",
 subtitle:"Eine der ältesten Traditionen Sardiniens",
-historyTitle:"Geschichte",
-historyText:`Die Mamuthones gehören zu den bekanntesten traditionellen Masken Sardiniens. Sie nehmen an einem alten Ritual teil, dessen Ursprünge bis heute geheimnisvoll sind.`
+donationMessage:"Mit Ihrem Beitrag helfen wir unserem Mamuthone, hier zu bleiben, und unterstützen die Stadtfeste",
+historyHTML:`<h3>Das Ritual der Mamuthones</h3><p>Die Mamuthones tragen schwarze Holzmasken, dunkle Schafsfelle und 25 bis 30 kg schwere Glocken. Sie marschieren in zwei parallelen Reihen mit einem langsamen, schweren Schritt und einem synchronisierten Hüpfen in absolutem Schweigen.</p>`
 }
-
 };
 
 function setLanguage(lang){
     document.getElementById("title").innerText = translations[lang].title;
     document.getElementById("subtitle").innerText = translations[lang].subtitle;
-    document.getElementById("historyTitle").innerText = translations[lang].historyTitle;
-    document.getElementById("historyText").innerText = translations[lang].historyText;
+    document.getElementById("donationMessage").innerText = translations[lang].donationMessage;
+    document.getElementById("historyText").innerHTML = translations[lang].historyHTML;
 }
 
 function speakText(){
-    const text=document.getElementById("historyText").innerText;
-    const speech=new SpeechSynthesisUtterance(text);
-    speech.lang='it-IT';
+    const text = document.getElementById("historyText").innerText;
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = 'it-IT';
     window.speechSynthesis.speak(speech);
 }
 </script>
