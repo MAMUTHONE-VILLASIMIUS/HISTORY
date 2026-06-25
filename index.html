@@ -165,6 +165,16 @@ footer{
     border-radius:8px;
     cursor:pointer;
 }
+
+/* Supporto per la direzione RTL dell'arabo */
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+.rtl ul {
+    margin-left: 0;
+    margin-right: 20px;
+}
 </style>
 
 </head>
@@ -184,15 +194,17 @@ footer{
     <button onclick="setLanguage('fr')">🇫🇷 Français</button>
     <button onclick="setLanguage('es')">🇪🇸 Español</button>
     <button onclick="setLanguage('de')">🇩🇪 Deutsch</button>
+    <button onclick="setLanguage('zh')">🇨🇳 中文</button>
+    <button onclick="setLanguage('ru')">🇷🇺 Русский</button>
+    <button onclick="setLanguage('ar')">🇸🇦 العربية</button>
 </div>
 
-<!-- L'immagine è stata spostata qui: tra la barra multilingua e la sezione storia -->
 <div class="image-wrapper">
     <img class="gallery" src="mamuthones.jpg" alt="Mamuthones">
 </div>
 
 <div class="container">
-    <div class="section">
+    <div id="mainContent" class="section">
         <h2 id="historyTitle">LA STORIA</h2>
 
         <div id="historyText">
@@ -207,7 +219,7 @@ footer{
             <p>La teoria più solida inserisce i Mamuthones all'interno dei grandi riti dionisiaci del Mediterraneo antico. In questa chiave, il Mamuthone rappresenta una divinità sotterranea o un demone della vegetazione.</p>
             <ul>
                 <li><strong>Il significato:</strong> Il rito serviva a celebrare la morte e la rinascita della natura alla fine dell'inverno.</li>
-                <li><strong>I campanacci:</strong> Il frastuono cupo e ossessivo dei 30 kg di campane scosse all'unisono non era musica, ma un atto magico ed esorcistico (apotropaico) per scacciare gli spiriti del male dal villaggio e risvegliare la terra dal torpore invernale, propiziando la fertilità dei campi e del bestiame.</li>
+                <li><strong>I campanacci:</strong> Il frastuono cupo e ossessivo dei 30 kg di campane scosse all'unisono non era musica, ma un atto magico ed esorcistico (apotropaico) per scacciare gli spirits del male dal villaggio e risvegliare la terra dal torpore invernale, propiziando la fertilità dei campi e del bestiame.</li>
             </ul>
 
             <h4>2. Il Totemismo e il Culto del Toro</h4>
@@ -219,7 +231,7 @@ footer{
 
             <h3>La Conservazione nei Secoli</h3>
             <p>Come ha fatto questo rito pre-cristiano a sopravvivere fino a oggi?</p>
-            <p>La risposta sta nell'isolamento geografico e culturale della Barbagia. Durante la dominazione romana, bizantina e successivamente spagnola, l'interno della Sardegna ha opposto una strenua resistenza all'assimilazione culturale. Anche quando il Cristianesimo si è imposto nella region, non è riuscito a cancellare queste pratiche pagane. La Chiesa ha quindi attuato un processo di sincretismo religioso: il rito agrario e primordiale è stato tollerato e "agganciato" alle festività del calendario cristiano.</p>
+            <p>La risposta sta nell'isolamento geografico e culturale della Barbagia. Durante la dominazione romana, bizantina e successivamente spagnola, l'interno della Sardegna ha opposto una strenua resistenza all'assimilazione culturale. Anche quando il Cristianesimo si è imposto nella regione, non è riuscito a cancellare queste pratiche pagane. La Chiesa ha quindi attuato un processo di sincretismo religioso: il rito agrario e primordiale è stato tollerato e "agganciato" alle festività del calendario cristiano.</p>
             <p>Per questo motivo, ancora oggi, la prima uscita ufficiale dei Mamuthones non avviene a Carnevale, ma la notte tra il 16 e il 17 gennaio, in occasione della festa di Sant'Antonio Abate (il Santo legato al fuoco e alla protezione del bestiame).</p>
 
             <h3>L'Epoca Moderna e la Codificazione</h3>
@@ -262,15 +274,14 @@ footer{
         </button>
     </div>
 
-    <!-- Sezione Donazioni PayPal -->
     <div class="paypal-section">
         <p id="donationMessage">Con il tuo contributo aiutiamo il nostro Mamuthone a restare qui e sosteniamo le feste cittadine</p>
-        <a href="#!" target="_blank" class="paypal-button">Sostienici con PayPal</a>
+        <a id="paypalBtn" href="https://paypal.me/IL_TUO_USERNAME" target="_blank" class="paypal-button">Sostienici con PayPal</a>
     </div>
 </div>
 
 <footer>
-    © Comune / Associazione culturale
+    © MAMUTHONE / VILLASIMIUS
 </footer>
 
 <script>
@@ -279,46 +290,221 @@ it:{
 title:"I MAMUTHONES",
 subtitle:"Una delle tradizioni più antiche e affascinanti della Sardegna",
 donationMessage:"Con il tuo contributo aiutiamo il nostro Mamuthone a restare qui e sosteniamo le feste cittadine",
+paypalBtn:"Sostienici con PayPal",
+historyTitle:"LA STORIA",
 historyHTML:`
     <h3>Le Origini: Tra Civiltà Nuragica e Culti Ancestrali</h3>
-    <p>Le origini dei Mamuthones sono avvolte nel mistero. Gli studiosi collocano la nascita di questo rito sacro e agropastorale in epoca protostorica.</p>
+    <p>Le origini dei Mamuthones sono avvolte nel mistero a causa della totale assenza di fonti scritte millenarie. Tuttavia, gli archeologi e gli antropologi concordano nel collocare la nascita di questo rito in epoca protostorica, presumibilmente durante la civiltà nuragica (o addirittura pre-nuragica).</p>
+    <p>La sfilata non nasce come uno spettacolo di Carnevale, ma come un rito sacro e drammatico strettamente legato alla vita agropastorale dell'interno della Sardegna.</p>
     <h3>Le Tre Ipotesi Storiche Principali</h3>
-    <p><strong>1. Il Culto Dionisiaco:</strong> Il rito celebrava la morte e la rinascita della natura. I 30 kg di campanacci servivano ad allontanare il male e risvegliare la terra.</p>
-    <p><strong>2. Il Totemismo e il Culto del Toro:</strong> L'andatura pesante a testa china mimerebbe il bue, simbolo di forza e fecondità.</p>
-    <p><strong>3. La Vittoria sui Mori:</strong> Leggenda popolare che vede nei Mamuthones i prigionieri saraceni fatti sfilare in catene dagli Issohadores.</p>
+    <h4>1. Il Culto Dionisiaco e la Rigenerazione della Natura</h4>
+    <p>La teoria più solida inserisce i Mamuthones all'interno dei grandi riti dionisiaci del Mediterraneo antico. Il rito serviva a celebrare la morte e la rinascita della natura alla fine dell'inverno. Il frastuono cupo e ossessivo dei 30 kg di campane era un atto magico per scacciare gli spiriti del male dal villaggio e risvegliare la terra, propiziando la fertilità dei campi e del bestiame.</p>
+    <h4>2. Il Totemismo e il Culto del Toro</h4>
+    <p>Un'altra linea di ricerca lega la maschera al culto del bue o del toro, divinità centrale nelle religioni preistoriche sarde. L'andatura dei Mamuthones — lenta, pesante, con la testa china e il corpo piegato in avanti sotto il peso del carico — mimerebbe proprio il passo faticoso dell'animale da lavoro nei campi.</p>
+    <h4>3. La Vittoria sui Mori</h4>
+    <p>Esiste una spiegazione popolare che vede nella sfilata la celebrazione della vittoria dei pastori della Barbagia contro gli invasori Saraceni (i Mori). I Mamuthones rappresenterebbero i prigionieri arabi catturati, fatti sfilare in catene sotto il controllo degli Issohadores. Gli storici la considerano una reinterpretazione successiva.</p>
+    <h3>La Conservazione nei Secoli</h3>
+    <p>Il rito è sopravvissuto grazie all'isolamento geografico e culturale della Barbagia. Il Cristianesimo ha attuato un processo di sincretismo religioso: il rito agrario è stato tollerato e agganciato alle festività cristiane. Per questo la prima uscita ufficiale avviene la notte tra il 16 e il 17 gennaio, per la festa di Sant'Antonio Abate.</p>
+    <h3>L'Epoca Moderna e la Codificazione</h3>
+    <p>Fino alla prima metà del Novecento, il rito era un evento intimo e rurale. A partire dagli anni '50 e '70, l'interesse di etnologi e del turismo ha trasformato questa danza in uno dei simboli identitari più potenti della Sardegna nel mondo, mantenendo inalterata la sua sacralità originale.</p>
     <h3>I Dettagli del Costume</h3>
-    <p><strong>La Visera:</strong> Maschera nera in legno che esprime una sofferenza profonda. <strong>La Mastruca:</strong> Giacca in pelle di pecora nera. <strong>Sa Carriga:</strong> Carica di campanacci sulla schiena e sul petto pesante tra i 25 e i 30 kg.</p>`
+    <h4>1. La Visera (La Maschera)</h4>
+    <p>Intagliata a mano in legni teneri locali (fico, ontano). È dipinta di nero e i tratti somatici asimmetrici esprimono una sofferenza profonda.</p>
+    <h4>2. Il Copricapo (Su Mucadore e La Berrita)</h4>
+    <p>La testa è avvolta da "Su Mucadore" (un fazzoletto scuro legato sotto il mento) e sormontato da "La Berrita" (il classico berretto sardo).</p>
+    <h4>3. L'Abbigliamento (La Mastruca)</h4>
+    <p>Indossano "La Mastruca", una giacca smanicata in pelle di pecora nera con la lana rivolta verso l'esterno, sopra l'abito tradizionale in velluto scuro.</p>
+    <h4>4. La Carica dei Campanacci (Sa Carriga)</h4>
+    <p>Un carico pesante tra i 25 e i 30 kg diviso tra grandi campane sulla schiena (Sos Sonaggios) e campanelle più piccole sul petto (Sa Trebba).</p>`
 },
 en:{
 title:"THE MAMUTHONES",
 subtitle:"One of Sardinia's oldest and most fascinating traditions",
 donationMessage:"With your contribution we help our Mamuthone stay here and support town festivals",
-historyHTML:`<h3>Origins and Theories</h3><p>The origins of the Mamuthones date back to the Nuragic era. Key theories include Dionysian fertility cults to awaken nature, bull worship representing strength, or the celebration of victory over Moorish invaders. The heavy costume includes the tragic black wooden mask (visera), sheepskin jacket (mastruca), and 25-30 kg of iron and bronze bells (sa carriga).</p>`
+paypalBtn:"Support us with PayPal",
+historyTitle:"THE HISTORY",
+historyHTML:`
+    <h3>The Origins: Between Nuragic Civilization and Ancestral Cults</h3>
+    <p>The origins of the Mamuthones are shrouded in mystery due to the total absence of ancient written sources. However, archaeologists and anthropologists agree on placing the birth of this ritual in protohistoric times, presumably during the Nuragic civilization.</p>
+    <p>The parade did not originate as a Carnival show, but as a sacred and dramatic ritual closely linked to the agro-pastoral life of inland Sardinia.</p>
+    <h3>The Three Main Historical Hypotheses</h3>
+    <h4>1. The Dionysian Cult and the Regeneration of Nature</h4>
+    <p>The most solid theory places the Mamuthones within the great Dionysian rituals of the ancient Mediterranean. The ritual served to celebrate the death and rebirth of nature at the end of winter. The dark and obsessive din of the 30 kg of bells shaken in unison was a magical act to drive away evil spirits from the village and awaken the earth from winter torpor.</p>
+    <h4>2. Totemism and the Cult of the Bull</h4>
+    <p>Another line of research links the mask to the cult of the ox or bull, a central deity in Sardinian prehistoric religions. The gait of the Mamuthones — slow, heavy, with bowed head and body bent forward under the weight of the load — mimics the heavy step of the working animal.</p>
+    <h4>3. The Victory over the Moors</h4>
+    <p>A popular explanation sees the parade as a celebration of the victory of Barbagia shepherds against the Saracen invaders (the Moors). The Mamuthones would represent the captured Arab prisoners, paraded in chains under the control of the Issohadores. Historics consider this a later reinterpretation.</p>
+    <h3>Preservation Through Centuries</h3>
+    <p>The ritual survived thanks to the geographical and cultural isolation of Barbagia. Christianity implemented a process of religious syncretism: the agrarian ritual was tolerated and linked to Christian holidays. For this reason, the first official appearance takes place on the night between January 16 and 17, for the feast of Saint Anthony Abbot.</p>
+    <h3>The Details of the Costume</h3>
+    <h4>1. The Visera (The Mask)</h4>
+    <p>Hand-carved from local soft wood, painted entirely black. The facial features express deep suffering and tragic composure.</p>
+    <h4>2. The Headwear (Su Mucadore and La Berrita)</h4>
+    <p>The head is wrapped in a dark kerchief tied under the chin (Su Mucadore) and topped by the classic Sardinian cap (La Berrita).</p>
+    <h4>3. The Clothing (La Mastruca)</h4>
+    <p>A sleeveless jacket made of dark sheepskin with the long wool facing outwards, worn over the traditional dark velvet suit.</p>
+    <h4>4. The Charge of the Bells (Sa Carriga)</h4>
+    <p>A heavy load weighing between 25 and 30 kg, divided between large bells on the back (Sos Sonaggios) and smaller bells on the chest (Sa Trebba).</p>`
 },
 fr:{
 title:"LES MAMUTHONES",
 subtitle:"Une des traditions les plus anciennes de Sardaigne",
 donationMessage:"Avec votre contribution, nous aidons notre Mamuthone à rester ici et soutenons les fêtes du village",
-historyHTML:`<h3>Origines et Costume</h3><p>Ce rituel pastoral remonte à l'âge nuragique. Il s'agit d'un rite de fertilité dionysiaque visant à réveiller la nature à la fin de l'hiver. Le costume traditionnel lourd se compose d'un masque en bois noir (visera), d'une veste en peau de mouton (mastruca) et de 30 kg de cloches (sa carriga).</p>`
+paypalBtn:"Soutenez-nous avec PayPal",
+historyTitle:"L'HISTOIRE",
+historyHTML:`
+    <h3>Les Origines : Entre Civilisation Nuragique et Cultes Ancestraux</h3>
+    <p>Les origines des Mamuthones sont entourées de mystère. Les anthropologues s'accordent à situer la naissance de ce rite à l'époque protohistorique, probablement pendant la civilisation nuragique.</p>
+    <h3>Les Trois Principales Hypothèses Historiques</h3>
+    <h4>1. Le Culte Dionysiaque et la Régénération de la Nature</h4>
+    <p>Le rite servait à célébrer la mort et la renaissance de la nature à la fin de l'hiver. Le fracas obsessionnel des 30 kg de cloches était un acte magique pour chasser les mauvais esprits du village.</p>
+    <h4>2. Le Totémisme et le Culte du Taureau</h4>
+    <p>Lié au culte du bœuf ou du taureau, symbole de force. La démarche lourde, tête baissée, imite le pas fatigué de l'animal de travail dans les champs.</p>
+    <h4>3. La Victoire sur les Maures</h4>
+    <p>Légende populaire qui voit dans le défilé la célébration de la victoire des bergers contre les envahisseurs sarrasins (les Maures), représentés comme des prisonniers enchaînés.</p>
+    <h3>Les Détails du Costume</h3>
+    <p><strong>La Visera :</strong> Masque noir en bois sculpté à la main exprimant la souffrance. <strong>La Mastruca :</strong> Veste en peau de mouton noire. <strong>Sa Carriga :</strong> Une charge de 25 à 30 kg de cloches sur le dos et la poitrine.</p>`
 },
 es:{
 title:"LOS MAMUTHONES",
 subtitle:"Una de las tradiciones más antiguas de Cerdeña",
 donationMessage:"Con tu contribución ayudamos a nuestro Mamuthone a quedarse aquí y apoyamos las fiestas del pueblo",
-historyHTML:`<h3>Orígenes y Vestimenta</h3><p>El antiguo ritual se remonta a la época nurágica, vinculado a ritos de fertilidad de la tierra. Los Mamuthones cargan entre 25 y 30 kg de cencerros (sa carriga) sobre una chaqueta de piel de oveja negra (mastruca), ocultando su identidad tras una máscara negra de madera de mirada trágica (visera).</p>`
+paypalBtn:"Apóyanos con PayPal",
+historyTitle:"LA HISTORIA",
+historyHTML:`
+    <h3>Los Orígenes: Entre la Civilización Nurágica y Cultos Ancestrales</h3>
+    <p>Los orígenes de los Mamuthones están envueltes en el misterio. Los arqueólogos sitúan el nacimiento de este rito sagrado agropastoril en la época protohistórica, durante la civilización nurágica.</p>
+    <h3>Las Tres Principales Hipótesis Históricas</h3>
+    <h4>1. El Culto Dionisíaco y la Regeneración de la Naturaleza</h4>
+    <p>El rito servía para celebrar la muerte y el renacimiento de la naturaleza al final del invierno. El estruendo de los 30 kg de cencerros era un acto mágico para ahuyentar los espíritus malignos.</p>
+    <h4>2. El Totemismo y el Culto al Toro</h4>
+    <p>Vinculado al culto al buey o toro, deidad de la fuerza. El andar lento y pesado con la cabeza inclinada imita el paso fatigado del animal de trabajo.</p>
+    <h4>3. La Victoria sobre los Moros</h4>
+    <p>Leyenda popular que ve en el desfile la celebración de la victoria contra los invasores sarracenos (los moros), representados como prisioneros encadenados bajo el control de los Issohadores.</p>
+    <h3>Los Detalles del Traje</h3>
+    <p><strong>La Visera:</strong> Máscara negra de madera tallada a mano. <strong>La Mastruca:</strong> Chaqueta de piel de oveja negra. <strong>Sa Carriga:</strong> Carga de cencerros en la espalda y pecho de entre 25 y 30 kg.</p>`
 },
 de:{
-title:"DIE DIE MAMUTHONES",
+title:"DIE MAMUTHONES",
 subtitle:"Eine der ältesten Traditionen Sardiniens",
 donationMessage:"Mit Ihrem Beitrag helfen wir unserem Mamuthone, hier zu bleiben, und unterstützen die Stadtfeste",
-historyHTML:`<h3>Ursprung und Tracht</h3><p>Dieses prähistorische agrarische Ritual dient der Vertreibung des Bösen und der Fruchtbarkeit. Die Tracht besteht aus der schwarzen Holzmaske (visera), einer Weste aus schwarzem Schaffell (mastruca) und 25 bis 30 kg schweren Glocken (sa carriga) auf dem Rücken und der Brust.</p>`
+paypalBtn:"Unterstützen Sie uns mit PayPal",
+historyTitle:"DIE GESCHICHTE",
+historyHTML:`
+    <h3>Die Ursprünge: Zwischen Nuraghen-Zivilisation und Ahnenkulten</h3>
+    <p>Die Ursprünge der Mamuthones sind mysteriös. Anthropologen glauben, dass dieses sakrale agrarische Ritual in der prähistorischen Nuraghen-Ära entstand.</p>
+    <h3>Die drei historischen Haupthisorien</h3>
+    <h4>1. Der dionysische Kult und die Regeneration der Natur</h4>
+    <p>Das Ritual feierte das Sterben und Wiedererwachen der Natur im Winter. Der dumpfe Lärm der 30 kg schweren Glocken war ein magischer Akt, um böse Geister zu vertreiben.</p>
+    <h4>2. Totemismus und der Kult des Stiers</h4>
+    <p>Verbunden mit dem Kult des Stiers (Symbol für Fruchtbarkeit). Der schwere Gang mit gesenktem Kopf ahmt den mühsamen Schritt des Arbeitstieres nach.</p>
+    <h4>3. Der Sieg über die Mauren</h4>
+    <p>Eine populäre Legende sieht im Umzug den Sieg über sarazenische Invasoren (Mauren), die als Gefangene in Ketten vorgeführt werden.</p>
+    <h3>Die Details der Tracht</h3>
+    <p><strong>Die Visera:</strong> Handgeschnitzte schwarze Holzmaske tragischen Ausdrucks. <strong>Die Mastruca:</strong> Weste aus schwarzem Schaffell. <strong>Sa Carriga:</strong> 25 bis 30 kg schwere Glockenlast auf Rücken und Brust.</p>`
+},
+zh:{
+title:"马穆托内斯人 (I MAMUTHONES)",
+subtitle:"撒丁岛最古老、最迷人的传统之一",
+donationMessage:"您的捐助将帮助我们的马穆托内斯传统留在本地，并支持镇上的节日活动",
+paypalBtn:"通过 PayPal 支持我们",
+historyTitle:"历史渊源",
+historyHTML:`
+    <h3>起源：努拉吉文明与祖先崇拜之间</h3>
+    <p>由于缺乏千年前的文字记载，马穆托内斯（Mamuthones）的起源充满了神秘色彩。然而，考古学家和人类学家一致认为，这一仪式诞生于原史时代，大概是在努拉吉文明（甚至前努拉吉时期）。</p>
+    <p>这场游行最初并非普通的狂欢节表演，而是一种与撒丁岛内陆农牧生活紧密相连的庄严神圣的祭祀仪式。</p>
+    <h3>三大主要历史假说</h3>
+    <h4>1. 酒神崇拜与自然复苏（最公认的理论）</h4>
+    <p>该理论将马穆托内斯归入古代地中海的酒神节仪式。该仪式用于在冬末庆祝大自然的死亡与新生。同步摇晃重达30公斤牛铃所发出的低沉驱魔（辟邪）声，是为了驱走村庄里的恶灵，唤醒沉睡的土地，祈求田野和牲畜的丰收。</p>
+    <h4>2. 图腾崇拜与公牛信仰</h4>
+    <p>另一项研究将面具与牛的崇拜联系在一起，牛是撒丁岛史前宗教中代表力量与繁殖的核心神祇。马穆托内斯人缓慢、沉重、低头弓背的步伐，正是模仿了劳作牲畜在田间迈出的艰难步伐。</p>
+    <h4>3. 战胜摩尔人（民间传说）</h4>
+    <p>这是一个世代口耳相传的民间解释，认为游行是为了庆祝巴尔巴吉亚牧民战胜萨拉森侵略者（摩尔人）。黑脸黑衣的马穆托内斯人代表被俘虏的阿拉伯囚犯，他们戴着沉重的铃铛在伊索哈多雷斯（身穿红衣的撒丁岛胜利者）的押解下示众。历史学家认为这是后世的重新解读。</p>
+    <h3>几个世纪以来的保存</h3>
+    <p>由于巴尔巴吉亚地理和文化上的孤立，这一仪式得以幸存。基督教进入该地区后，教会将这种原始的农业仪式与基督教节日相结合。因此，直到今天，马穆托内斯人的首次官方出场是在1月16日至17日的圣安东尼节，而不是狂欢节。</p>
+    <h3>服装细节</h3>
+    <h4>1. 面具 (La Visera)</h4>
+    <p>用当地软木（无花果木、桤木）纯手工雕刻，涂成全黑色。面部线条夸张且不对称，表达了一种深沉的痛苦与悲剧般的肃穆。</p>
+    <h4>2. 头饰 (Su Mucadore 与 La Berrita)</h4>
+    <p>头部用“Su Mucadore”（传统的深色头巾）紧紧包裹并在下巴下系紧，上方佩戴撒丁岛传统的黑色呢帽“La Berrita”。</p>
+    <h4>3. 服装 (La Mastruca)</h4>
+    <p>身穿“La Mastruca”，这是一种由黑色或深色绵羊皮制成的无袖夹克，羊毛长而粗糙朝外，内穿深色天鹅绒传统服装。</p>
+    <h4>4. 负重牛铃 (Sa Carriga)</h4>
+    <p>全套牛铃总重在25至30公斤之间，分为背部的一组大铃铛（Sos Sonaggios）和胸前的一组小铃铛（Sa Trebba）。</p>`
+},
+ru:{
+title:"МАМУТОНЕС (I MAMUTHONES)",
+subtitle:"Одна из самых древних и увлекательных традиций Сардинии",
+donationMessage:"Ваш вклад поможет сохранить традицию Мамутонес и поддержит городские праздники",
+paypalBtn:"Поддержать через PayPal",
+historyTitle:"ИСТОРИЯ",
+historyHTML:`
+    <h3>Происхождение: Между нурагической цивилизацией и культами предков</h3>
+    <p>Происхождение Мамутонес окутано тайной из-за полного отсутствия древних письменных источников. Однако археологи и антропологи сходятся во мнении, что этот ритуал зародился в протоисторическую эпоху, предположительно во времена нурагической цивилизации.</p>
+    <p>Шествие возникло не как карнавальное шоу, а как священный и драматический ритуал, тесно связанный с агропасторальной жизнью внутренних районов Сардинии.</p>
+    <h3>Три главные исторические гипотезы</h3>
+    <h4>1. Дионисийский культ и возрождение природы (самая авторитетная теория)</h4>
+    <p>Эта теория связывает Мамутонес с великими дионисийскими ритуалами древнего Средиземноморья. Ритуал служил для празднования смерти и возрождения природы в конце зимы. Глухой и навязчивый грохот 30 кг колоколов был магическим актом для изгнания злых духов из деревни и пробуждения земли.</p>
+    <h4>2. Тотемизм и культ Быка</h4>
+    <p>Другая линия исследований связывает маску с культом быка — центрального божества в доисторических религиях Сардинии (символ силы и плодородия). Походка Мамутонес — медленная, тяжелая, с поникшей головой и согнутым вперед телом под тяжестью груза — имитирует тяжелый шаг рабочего скота на полях.</p>
+    <h4>3. Победа над маврами (народная легенда)</h4>
+    <p>Существует чисто народное объяснение, согласно которому шествие прославляет победу пастухов Барбаджи над сарацинскими захватчиками (маврами). Мамутонес с черными лицами представляют собой захваченных в плен арабских узников. Историки считают это более поздней интерпретацией.</p>
+    <h3>Сохранение сквозь века</h3>
+    <p>Ритуал сохранился благодаря географической и культурной изоляции Барбаджи. Христианство осуществило процесс религиозного синкретизма: аграрный ритуал был допущен и привязан к христианским праздникам. По этой причине первое официальное шествие происходит в ночь с 16 на 17 января, в праздник Святого Антония Аббата.</p>
+    <h3>Детали костюма</h3>
+    <h4>1. Маска (La Visera)</h4>
+    <p>Вырезается вручную из местных мягких пород дерева, полностью окрашена в черный цвет. Черты лица выражают глубокое страдание и трагическое спокойствие.</p>
+    <h4>2. Головной убор (Su Mucadore и La Berrita)</h4>
+    <p>Голова полностью укутана темным платком, завязанным под подбородком (Su Mucadore), а сверху надевается классический сардинский шерстяной колпак (La Berrita).</p>
+    <h4>3. Одежда (La Mastruca)</h4>
+    <p>Жилет без рукавов из темной овчины (La Mastruca) длинной шерстью наружу, надеваемый поверх традиционного костюма из темного бархата.</p>
+    <h4>4. Тяжелая связка колоколов (Sa Carriga)</h4>
+    <p>Груз весом от 25 до 30 кг, разделенный между большими колоколами на спине (Sos Sonaggios) и более мелкими колокольчиками на груди (Sa Trebba).</p>`
+},
+ar:{
+title:"الماموثونيس (I MAMUTHONES)",
+subtitle:"واحدة من أقدم التقاليد وأكثرها سحرًا في سردينيا",
+donationMessage:"بمساهمتك نساعد تقليد الماموثونيس على البقاء هنا وندعم أعياد البلدة",
+paypalBtn:"ادعمنا عبر PayPal",
+historyTitle:"التاريخ",
+historyHTML:`
+    <h3>الأصول: بين الحضارة النوراجية والطقوس القديمة</h3>
+    <p>تعتبر أصول طقوس الماموثونيس غامضة بسبب الغياب التام للمصادر المكتوبة القديمة. ومع ذلك، يجمع علماء الآثار والأنثروبولوجيا على إرجاع نشأة هذا الطقس إلى عصر ما قبل التاريخ، ويُعتقد أنه يعود إلى الحضارة النوراجية.</p>
+    <p>ولم يظهر هذا الموكب كعرض كرفالي، بل كطقس ديني ودرامي يرتبط ارتباطاً وثيقاً بالحياة الرعوية والزراعية في قلب سردينيا.</p>
+    <h3>الفرضيات التاريخية الثلاث الرئيسية</h3>
+    <h4>1. العبادة الديوانيسية وتجدد الطبيعة (النظرية الأكثر قبولاً)</h4>
+    <p>تدرج هذه النظرية طقس الماموثونيس ضمن الطقوس الديوانيسية الكبرى في البحر الأبيض المتوسط القديم للاحتفال بموت الطبيعة وبعثها في نهاية الشتاء. وكان الضجيج الصاخب لـ 30 كجم من الأجراس بمثابة عمل سحري لطرد الأرواح الشريرة من القرية وإيقاظ الأرض من سباتها.</p>
+    <h4>2. الطوطمية وعبادة الثور</h4>
+    <p>تربط أبحاث أخرى القناع بعبادة الثور، وهو رمز القوة والخصوبة في ديانات ما قبل التاريخ في سردينيا. وتماثل مشية الماموثونيس — البطيئة والثقيلة مع انحناء الرأس والجسم للأمام تحت وطأة الحمل — خطى حيوانات العمل الشاقة في الحقول.</p>
+    <h4>3. الانتصار على الموريسكيين (الأسطورة الشعبية)</h4>
+    <p>هناك تفسير شعبي يرى في الموكب احتفالاً بانتصار رعاة منطقة بارباجيا على الغزاة السراسنة (المور). ويمثل الماموثونيس ذوو الوجوه السوداء الأسرى العرب المقيدين بالسلاسل تحت سيطرة "الإيسوهادوريس" (المنتصرون السردينيون). ويعتبر المؤرخون هذا التفسير إعادة قراءة متأخرة للطقس.</p>
+    <h3>تفاصيل الزي التقليدي</h3>
+    <h4>1. القناع (La Visera)</h4>
+    <p>منحوت يدوياً من الأخشاب المحلية الخفيفة، ومطلي باللون الأسود الكامل. وتعبر ملامحه عن معاناة عميقة ووقار تراجيدي ثابث.</p>
+    <h4>2. غطاء الرأس (Su Mucadore و La Berrita)</h4>
+    <p>يُلف الرأس بالكامل بوشاح داكن يُربط تحت الذقن (Su Mucadore) وتوضع فوقه القبعة السردينية الكلاسيكية السوداء (La Berrita).</p>
+    <h4>3. الملابس (La Mastruca)</h4>
+    <p>سترة بدون أكمام مصنوعة من جلد الغنم الداكن (La Mastruca) مع توجيه الصوف الطويل للخارج، تُرتدى فوق الزي المخملي الداكن التقليدي.</p>
+    <h4>4. حمل الأجراس الثقيلة (Sa Carriga)</h4>
+    <p>حمل ثقيل يزن ما بين 25 و 30 كجم، ينقسم بين أجراس كبيرة على الظهر (Sos Sonaggios) وأجراس أصغر حجماً على الصدر (Sa Trebba).</p>`
 }
 };
 
 function setLanguage(lang){
+    const mainContent = document.getElementById("mainContent");
+    
+    // Gestione della direzione del testo (RTL per l'arabo)
+    if (lang === 'ar') {
+        mainContent.classList.add('rtl');
+    } else {
+        mainContent.classList.remove('rtl');
+    }
+    
     document.getElementById("title").innerText = translations[lang].title;
     document.getElementById("subtitle").innerText = translations[lang].subtitle;
     document.getElementById("donationMessage").innerText = translations[lang].donationMessage;
+    document.getElementById("paypalBtn").innerText = translations[lang].paypalBtn;
+    document.getElementById("historyTitle").innerText = translations[lang].historyTitle;
     document.getElementById("historyText").innerHTML = translations[lang].historyHTML;
 }
 
