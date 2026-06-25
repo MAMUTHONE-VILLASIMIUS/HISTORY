@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamuthones di Mamoiada</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
+    line-height:1.7;
+    color:#222;
+    background:#f5f2eb;
+}
+
+header{
+    height:60vh;
+    background:url('mamuthones.jpg') center center/cover no-repeat;
+    position:relative;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.overlay h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.overlay p{
+    font-size:1.2rem;
+}
+
+.language-bar{
+    text-align:center;
+    padding:20px;
+    background:white;
+}
+
+.language-bar button{
+    padding:10px 15px;
+    margin:5px;
+    border:none;
+    cursor:pointer;
+    border-radius:6px;
+    font-size:1rem;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.section{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.section h2{
+    margin-bottom:20px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#666;
+}
+
+.audio-btn{
+    margin-top:20px;
+    padding:12px 18px;
+    background:#333;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+img.gallery{
+    width:100%;
+    border-radius:12px;
+    margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="overlay">
+        <h1 id="title">Mamuthones di Mamoiada</h1>
+        <p id="subtitle">Una delle tradizioni più antiche e affascinanti della Sardegna</p>
+    </div>
+</header>
+
+<div class="language-bar">
+    <button onclick="setLanguage('it')">🇮🇹 Italiano</button>
+    <button onclick="setLanguage('en')">🇬🇧 English</button>
+    <button onclick="setLanguage('fr')">🇫🇷 Français</button>
+    <button onclick="setLanguage('es')">🇪🇸 Español</button>
+    <button onclick="setLanguage('de')">🇩🇪 Deutsch</button>
+</div>
+
+<div class="container">
+    <div class="section">
+
+```
+    <h2 id="historyTitle">La storia</h2>
+
+    <p id="historyText">
+        I Mamuthones rappresentano una delle maschere tradizionali più celebri della Sardegna.
+        Originari di Mamoiada, nel cuore della Barbagia, sono protagonisti di un rito
+        antico che affonda le sue radici in epoche remote e misteriose.
+
+        Vestiti con pelli ovine nere e portando sulle spalle decine di pesanti campanacci,
+        i Mamuthones avanzano lentamente seguendo una processione ritmica e solenne.
+        Al loro fianco sfilano gli Issohadores, riconoscibili per il costume bianco e la
+        caratteristica fune utilizzata per catturare simbolicamente gli spettatori.
+
+        Il significato originario della manifestazione è ancora oggi oggetto di studio.
+        Secondo alcune interpretazioni il rito sarebbe collegato a cerimonie propiziatorie
+        per la fertilità della terra, mentre altre ipotesi lo collegano a celebrazioni
+        pastorali o a riti precristiani.
+
+        Oggi i Mamuthones costituiscono uno dei simboli culturali più importanti della Sardegna
+        e attirano visitatori da tutto il mondo.
+    </p>
+
+    <button class="audio-btn" onclick="speakText()">
+        🔊 Ascolta la storia
+    </button>
+
+    <img class="gallery" src="mamuthones.jpg" alt="Mamuthones">
+
+</div>
+```
+
+</div>
+
+<footer>
+    © Comune / Associazione culturale
+</footer>
+
+<script>
+
+const translations = {
+
+it:{
+title:"Mamuthones di Mamoiada",
+subtitle:"Una delle tradizioni più antiche e affascinanti della Sardegna",
+historyTitle:"La storia",
+historyText:`I Mamuthones rappresentano una delle maschere tradizionali più celebri della Sardegna. Originari di Mamoiada, nel cuore della Barbagia, sono protagonisti di un rito antico che affonda le sue radici in epoche remote e misteriose. Vestiti con pelli ovine nere e portando sulle spalle decine di pesanti campanacci, i Mamuthones avanzano lentamente seguendo una processione ritmica e solenne. Al loro fianco sfilano gli Issohadores.`
+},
+
+en:{
+title:"The Mamuthones of Mamoiada",
+subtitle:"One of Sardinia's oldest and most fascinating traditions",
+historyTitle:"History",
+historyText:`The Mamuthones are among the most famous traditional masks of Sardinia. Originating in Mamoiada, they take part in an ancient ritual whose origins remain mysterious. Dressed in black sheepskins and carrying heavy bells, they move in a solemn rhythmic procession accompanied by the Issohadores.`
+},
+
+fr:{
+title:"Les Mamuthones de Mamoiada",
+subtitle:"Une des traditions les plus anciennes de Sardaigne",
+historyTitle:"Histoire",
+historyText:`Les Mamuthones sont parmi les masques traditionnels les plus célèbres de Sardaigne. Ils participent à un rituel ancien dont les origines restent mystérieuses.`
+},
+
+es:{
+title:"Los Mamuthones de Mamoiada",
+subtitle:"Una de las tradiciones más antiguas de Cerdeña",
+historyTitle:"Historia",
+historyText:`Los Mamuthones son una de las máscaras tradicionales más famosas de Cerdeña. Participan en un antiguo ritual cuyos orígenes siguen siendo misteriosos.`
+},
+
+de:{
+title:"Die Mamuthones von Mamoiada",
+subtitle:"Eine der ältesten Traditionen Sardiniens",
+historyTitle:"Geschichte",
+historyText:`Die Mamuthones gehören zu den bekanntesten traditionellen Masken Sardiniens. Sie nehmen an einem alten Ritual teil, dessen Ursprünge bis heute geheimnisvoll sind.`
+}
+
+};
+
+function setLanguage(lang){
+    document.getElementById("title").innerText = translations[lang].title;
+    document.getElementById("subtitle").innerText = translations[lang].subtitle;
+    document.getElementById("historyTitle").innerText = translations[lang].historyTitle;
+    document.getElementById("historyText").innerText = translations[lang].historyText;
+}
+
+function speakText(){
+    const text=document.getElementById("historyText").innerText;
+    const speech=new SpeechSynthesisUtterance(text);
+    speech.lang='it-IT';
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
