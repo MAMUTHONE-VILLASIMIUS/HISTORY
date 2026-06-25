@@ -5,10 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>I MAMUTHONES</title>
 
-<link rel="icon" type="image/png" href="favicon-96x96.png?v=1" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg?v=1" />
-<link rel="shortcut icon" href="favicon.ico?v=1" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=1" />
+<!-- Configurazione Favicon (con forzatura aggiornamento cache ?v=2) -->
+<link rel="icon" type="image/png" href="favicon-96x96.png?v=2" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
+<link rel="shortcut icon" href="favicon.ico?v=2" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=2" />
 <link rel="manifest" href="site.webmanifest" />
 
 <style>
@@ -21,8 +22,8 @@
 body{
     font-family: Georgia, serif;
     line-height:1.7;
-    color:#222;
-    background:#f5f2eb;
+    color: #f0f0f0; /* Testo chiaro per contrastare lo sfondo nero */
+    background: #000000; /* Sfondo completamente nero */
 }
 
 header{
@@ -34,7 +35,7 @@ header{
 .overlay{
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,0.6); /* Leggermente più scuro per staccare col nero */
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -56,16 +57,23 @@ header{
 .language-bar{
     text-align:center;
     padding:20px;
-    background:white;
+    background: #000000; /* Sfondo nero */
 }
 
 .language-bar button{
     padding:10px 15px;
     margin:5px;
-    border:none;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: white;
     cursor:pointer;
     border-radius:6px;
     font-size:1rem;
+    transition: background 0.3s;
+}
+
+.language-bar button:hover {
+    background: #333;
 }
 
 .image-wrapper {
@@ -87,18 +95,20 @@ img.gallery{
 }
 
 .section{
-    background:white;
+    background: #111111; /* Grigio molto scuro per differenziarsi dallo sfondo */
     padding:30px;
     border-radius:12px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    box-shadow:0 3px 12px rgba(255,255,255,0.05); /* Ombra leggera chiara */
     margin-bottom: 30px;
+    border: 1px solid #222;
 }
 
 .section h2{
     margin-top: 25px;
     margin-bottom:15px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #333;
     padding-bottom: 5px;
+    color: #ffffff;
 }
 
 .section h2:first-of-type {
@@ -107,7 +117,7 @@ img.gallery{
 
 .section h3{
     margin: 20px 0 10px 0;
-    color: #444;
+    color: #dddddd;
 }
 
 .section p {
@@ -124,10 +134,10 @@ img.gallery{
 }
 
 .paypal-section {
-    background: #ffffff;
+    background: #111111; /* Grigio molto scuro */
     padding: 40px 20px;
     border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+    border: 1px solid #222;
     text-align: center;
 }
 
@@ -135,7 +145,7 @@ img.gallery{
     font-size: 1.1rem;
     margin-bottom: 20px;
     font-style: italic;
-    color: #333;
+    color: #cccccc;
 }
 
 .paypal-button {
@@ -159,18 +169,23 @@ img.gallery{
 footer{
     text-align:center;
     padding:30px;
-    color:#666;
+    color:#777777;
 }
 
 .audio-btn{
     margin-top:20px;
     padding:12px 18px;
-    background:#333;
+    background:#222;
     color:white;
-    border:none;
+    border: 1px solid #444;
     border-radius:8px;
     cursor:pointer;
     font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.audio-btn:hover {
+    background:#444;
 }
 
 .rtl {
@@ -214,7 +229,8 @@ footer{
         <h2 id="historyTitle">LA STORIA</h2>
 
         <div id="historyText">
-            </div>
+            <!-- Il contenuto dinamico verrà inserito qui via JavaScript -->
+        </div>
 
         <button id="audioBtn" class="audio-btn" onclick="speakText()">
             🔊 Ascolta la storia
@@ -244,7 +260,7 @@ audioBtn:"🔊 Ascolta la storia",
 historyTitle:"LA STORIA",
 historyHTML:`
     <h3>Le Origini: Tra Civiltà Nuragica e Culti Ancestrali</h3>
-    <p>Le origini dei Mamuthones sono avvolte nel mistero a causa della totale assenza di fontes scritte millenarie. Tuttavia, gli archeologi e gli antropologi concordano nel collocare la nascita di questo rito in epoca protostorica, presumibilmente durante la civiltà nuragica (o addirittura pre-nuragica).</p>
+    <p>Le origini dei Mamuthones sono avvolte nel mistero a causa della totale assenza di fonti scritte millenarie. Tuttavia, gli archeologi e gli antropologi concordano nel collocare la nascita di questo rito in epoca protostorica, presumibilmente durante la civiltà nuragica (o addirittura pre-nuragica).</p>
     <p>La sfilata non nasce come uno spettacolo di Carnevale, ma come un rito sacro e drammatico strettamente legato alla vita agropastorale dell'interno della Sardegna.</p>
 
     <h3>Le Tre Ipotesi Storiche Principali</h3>
@@ -270,7 +286,7 @@ historyHTML:`
 
     <h3>L'Epoca Moderna e la Codificazione</h3>
     <p>Fino alla prima metà del Novecento, il rito era un evento intimo, rurale e di esclusivo consumo comunitario, tramandato rigidamente da una "confraternita" spontanea di pastori e contadini di Mamoiada che custodivano i segreti del passo e la manifattura delle maschere.</p>
-    <p>A partire dagli anni '50 e '60, e in modo definitivo negli anni '70, i Mamuthones sono usciti dai confini del paese. L'interesse di etnologi, antropologi e del turismo di massa ha trasformato questa danza rituale da evento folkloristico locale a uno dei simboli identitari più potenti della Sardegna nel mondo, pur riuscendo a mantenere inalterata la severità, il mistero e la sacralità del passo original.</p>
+    <p>A partire dagli anni '50 e '60, e in modo definitivo negli anni '70, i Mamuthones sono usciti dai confini del paese. L'interesse di etnologi, antropologi e del turismo di massa ha trasformato questa danza rituale da evento folkloristico locale a uno dei simboli identitari più potenti della Sardegna nel mondo, pur riuscendo a mantenere inalterata la severità, il mistero e la sacralità del passo originale.</p>
 
     <h3>I Dettagli del Costume</h3>
     
@@ -409,7 +425,7 @@ historyHTML:`
     </ul>
 
     <h4>2. El Totemismo y el Culto al Toro</h4>
-    <p>Otra línea de investigación vincula la máscara al culto del buey o del toro, deidad central en las religiones prehistócesis sardas (símbolo de fuerza y fecundidad). El andar de los Mamuthones — lento, pesado, con la cabeza inclinada y el cuerpo doblado hacia adelante bajo el peso de la carga — imita el paso fatigado del animal de trabajo en los campos.</p>
+    <p>Otra línea de investigación vincula la máscara al culto del buey o del toro, deidad central en las religiones prehistóricas sardas (símbolo de fuerza y fecundidad). El andar de los Mamuthones — lento, pesado, con la cabeza inclinada y el cuerpo doblado hacia adelante bajo el peso de la carga — imita el paso fatigado del animal de trabajo en los campos.</p>
 
     <h4>3. La Victoria sobre los Moros (La leyenda popular)</h4>
     <p>Existe una explicación popular, transmitida oralmente a lo largo de los siglos, que ve en el desfile la celebración de la victoria de los pastores de la Barbagia contra los invasores sarracenos (los moros).</p>
@@ -433,7 +449,7 @@ historyHTML:`
     <p>El cuerpo está cubierto por La Mastruca, una chaqueta sin mangas de piel de oveja negra o oscura (se evitan las pieles blancas, dejadas a los Issohadores). La lana es larga, gruesa y hacia afuera. Debajo lleva el clásico traje tradicional sardo de terciopelo oscuro con botas de cuero.</p>
 
     <h4>4. La Carga de Cencerros (Sa Carriga)</h4>
-    <p>Una carga pesada de entre 25 y 30 kg dividida entre grandes cencerros en la espalda (Sos Sonaggios) sujetos con correas de cuero, y cencerros más pequeños de bronce en el pecho (Sa Trabba).</p>`
+    <p>Una carga pesada de entre 25 y 30 kg dividida entre grandes cencerros en la espalda (Sos Sonaggios) sujetos con correas de cuero, y cencerros más pequeños de bronce en el pecho (Sa Trebba).</p>`
 },
 de:{
 title:"DIE MAMUTHONES",
@@ -451,7 +467,7 @@ historyHTML:`
     <p>Im Laufe der Jahre haben Wissenschaftler verschiedene Theorien formuliert, um den Ursprung dieser Figuren zu erklären:</p>
     
     <h4>1. Der dionysische Kult und die Regeneration der Natur (Die anerkannteste Theorie)</h4>
-    <p>Die solideste Theorie ordnet die Mamuthones in die großen dionysischen Rituale des antiken Mittelmeerraums ein. In dieser Interpretation stellt der Mamuthone eine unterirdische Gottheit oder einen Dämon der Vegetation dar.</p>
+    <p>Die solideste Theorie ordnet die Mamuthones in die großen dionysischen Rituale des antiken Mittelmeerraums ein. In dieser Interpretation stellt der Mamuthone eine unterirdische Gottheit oder einen Dämon der Vegetation.</p>
     <ul>
         <li><strong>Die Bedeutung:</strong> Das Ritual diente dazu, das Sterben und Wiedererwachen der Natur am Ende des Winters zu feiern.</li>
         <li><strong>Die Glocken:</strong> Der dumpfe und obsessive Lärm der 30 kg schweren, im Gleichschritt geschüttelten Glocken war keine Musik, sondern ein magischer, apotropäischer Akt, um böse Geister zu vertreiben, den Boden aus dem Winterschlaf zu wecken und die Fruchtbarkeit von Feldern und Vieh zu erbitten.</li>
